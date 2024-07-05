@@ -20,14 +20,13 @@ public class DataGenerator {
             .setContentType(ContentType.JSON)
             .log(LogDetail.ALL)
             .build();
-    private static final Faker faker = new Faker(new Locale("en"));
+    private static final Faker FAKER = new Faker(new Locale("en"));
 
     private DataGenerator() {
     }
 
     private static RegistrationDto sendRequest(RegistrationDto user) {
         given()
-                .spec(requestSpec)
                 .body(user)
                 .when()
                 .post("/api/system/users")
